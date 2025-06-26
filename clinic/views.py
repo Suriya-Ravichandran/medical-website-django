@@ -1,13 +1,24 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 # Create your views here.
 
 def index(request):
-    a=10
-    b=20
-    result=a+b
+    data="Welcome Back To App"
 
-    return HttpResponse(f"Hello world {result}")
+    product=[
+        {"pid":1,"pname":"apple","price":300.0,"dist":"30%"},
+        {"pid":2,"pname":"mango","price":300.0,"dist":"30%"},
+        {"pid":3,"pname":"graphs","price":300.0,"dist":"30%"},
+        {"pid":4,"pname":"jack fruit","price":300.0,"dist":"30%"},
+    ]
 
-def about(request):
-    return HttpResponse("This is a about page")
+    return render(request,"demo.html",{"data":data,"product":product})
+
+def about(request,id):
+    return HttpResponse(f"This is a about page: {id}")
+
+def old_url(request):
+    return redirect("clinic:new_url")
+
+def new_url(request):
+    return HttpResponse("This is new page")
