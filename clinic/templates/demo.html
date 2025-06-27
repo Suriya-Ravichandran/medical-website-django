@@ -30,6 +30,8 @@
                     <td><a href="{% url 'clinic:about' id=products.pid %}" class="btn btn-primary">Details</a></td>
                     </tr>
                 {% endfor%}
+                {% else %}
+                <P>No product found</P>
             {% endif %}
         </tbody>
         </table>
