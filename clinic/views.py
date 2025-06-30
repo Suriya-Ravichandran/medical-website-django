@@ -5,15 +5,8 @@ from django.http import HttpResponse
 def index(request):
     return render(request,"index.html")
 
-def about(request,id):
-    product=[
-        {"pid":1,"pname":"Apple","price":300.0,"dist":"30%","image":"{% static 'asset/images/client.jpg' %}"},
-        {"pid":2,"pname":"Mango","price":300.0,"dist":"30%","image":"/images/client.jpg"},
-        {"pid":3,"pname":"Graphs","price":300.0,"dist":"30%","image":"/images/client.jpg"},
-        {"pid":4,"pname":"Jack fruit","price":300.0,"dist":"30%","image":"/images/client.jpg"},
-    ]
-    productdetail=next((item for item in product if item["pid"] == int(id)),None)
-    return render(request,"demo2.html",{"productdetail":productdetail})
+def about(request):
+   return render(request,"about.html")
 
 def old_url(request):
     return redirect("clinic:new_url")
